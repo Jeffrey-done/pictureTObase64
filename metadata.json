@@ -1,0 +1,5 @@
+{
+  "name": "Image to Base64 Converter",
+  "description": "A static web application for converting images to Base64 strings and vice-versa. All operations are done locally in your browser.",
+  "requestFramePermissions": []
+}

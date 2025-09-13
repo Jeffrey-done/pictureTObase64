@@ -66,7 +66,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, existingFi
       />
       {imagePreview ? (
         <>
-            <img src={imagePreview} alt="图片预览" className="object-contain h-full w-full rounded-xl p-2" />
+            <img src={imagePreview} alt="图片预览" className="object-contain h-full w-full max-h-[400px] rounded-xl p-2" />
             <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
                 <span className="text-white font-semibold text-lg">更换图片</span>
             </div>

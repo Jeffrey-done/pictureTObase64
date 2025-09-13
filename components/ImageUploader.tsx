@@ -50,12 +50,17 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, existingFi
   return (
     <div
       onClick={handleClick}
+      onKeyPress={(e) => { if (e.key === 'Enter' || e.key === ' ') handleClick(); }}
       onDragEnter={(e) => handleDragEvent(e, true)}
       onDragLeave={(e) => handleDragEvent(e, false)}
       onDragOver={(e) => handleDragEvent(e, true)}
       onDrop={handleDrop}
-      className={`group relative flex flex-col items-center justify-center w-full min-h-[256px] border-2 border-dashed rounded-xl cursor-pointer transition-all duration-300
+      className={`group relative flex flex-col items-center justify-center w-full min-h-[256px] border-2 border-dashed rounded-xl cursor-pointer transition-all duration-300 outline-none
+        focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500 focus-visible:ring-offset-slate-900
         ${isDragging ? 'border-sky-500 bg-slate-700/50 scale-105' : 'border-slate-700 bg-slate-800/60 hover:border-sky-600 hover:bg-slate-800'}`}
+      tabIndex={0}
+      role="button"
+      aria-label="Image uploader, click or drag and drop an image"
     >
       <input
         type="file"

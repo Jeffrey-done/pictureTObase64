@@ -105,7 +105,7 @@ const Base64ToImage: React.FC = () => {
         <div className="flex flex-col space-y-4">
             <div>
                 <div className="flex justify-between items-center mb-2">
-                    <label htmlFor="base64-input" className="block text-md font-medium text-slate-300">
+                    <label htmlFor="base64-input" className="block text-md font-medium text-slate-700">
                         在此处粘贴 Base64 字符串
                     </label>
                     <input
@@ -117,7 +117,7 @@ const Base64ToImage: React.FC = () => {
                     />
                      <button
                         onClick={handleUploadClick}
-                        className="flex items-center gap-2 text-sm text-sky-400 hover:text-sky-300 font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500 focus-visible:ring-offset-slate-900 rounded-md p-1"
+                        className="flex items-center gap-2 text-sm text-rose-500 hover:text-rose-600 font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rose-500 focus-visible:ring-offset-rose-100 rounded-md p-1"
                         title="上传包含 Base64 字符串的 .txt 文件"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -131,7 +131,7 @@ const Base64ToImage: React.FC = () => {
                     value={base64Input}
                     onChange={(e) => setBase64Input(e.target.value)}
                     placeholder="data:image/png;base64,iVBORw0KGgo..."
-                    className="w-full h-48 p-3 bg-slate-800 border border-slate-700 rounded-md focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 resize-y font-mono text-xs selection:bg-sky-500/30"
+                    className="w-full h-48 p-3 bg-white/50 border border-white/50 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-y font-mono text-xs selection:bg-rose-300/50"
                     aria-label="Base64 input"
                 />
             </div>
@@ -139,29 +139,29 @@ const Base64ToImage: React.FC = () => {
                 <button
                   onClick={handleConvert}
                   disabled={!base64Input}
-                  className="w-full flex justify-center items-center gap-2 bg-sky-600 hover:bg-sky-700 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-md transition-all duration-200 transform hover:scale-105 disabled:scale-100 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500 focus-visible:ring-offset-slate-900"
+                  className="w-full flex justify-center items-center gap-2 bg-indigo-400 hover:bg-indigo-500 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-md transition-all duration-200 transform hover:scale-105 disabled:scale-100 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-rose-100"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                     转换为图片
                 </button>
-                <button onClick={handleClear} title="清空输入和结果" className="p-3 bg-slate-700 hover:bg-red-500/80 text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500 focus-visible:ring-offset-slate-900" disabled={!base64Input && !imageUrl}>
+                <button onClick={handleClear} title="清空输入和结果" className="p-3 bg-rose-200 hover:bg-rose-300 text-rose-800 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rose-500 focus-visible:ring-offset-rose-100" disabled={!base64Input && !imageUrl}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                 </button>
              </div>
-            {error && <div className="text-red-400 bg-red-900/50 p-4 rounded-md text-center">{error}</div>}
+            {error && <div className="text-red-700 bg-red-200/60 p-4 rounded-md text-center">{error}</div>}
         </div>
         <ResultDisplay title="图片输出结果">
             {imageUrl ? (
                 <div className="relative group w-full h-full flex items-center justify-center flex-col gap-4">
-                    <div className="flex-grow flex items-center justify-center w-full h-full">
-                        <img src={imageUrl} alt="从 Base64 解码" className="object-contain max-h-full max-w-full rounded-lg" />
+                    <div className="flex-grow flex items-center justify-center w-full h-full p-2">
+                        <img src={imageUrl} alt="从 Base64 解码" className="object-contain max-h-full max-w-full rounded-lg shadow-md" />
                     </div>
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                    <div className="absolute inset-0 bg-slate-800/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                         <button 
                             onClick={handleDownload}
-                            className="flex items-center gap-2 px-4 py-2 bg-slate-100/90 text-slate-900 font-semibold rounded-lg hover:bg-white transition-all transform hover:scale-105 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-offset-slate-900"
+                            className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm text-slate-800 font-semibold rounded-lg hover:bg-white transition-all transform hover:scale-105 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-0"
                         >
                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -170,14 +170,14 @@ const Base64ToImage: React.FC = () => {
                         </button>
                     </div>
                     {decodedInfo && (
-                         <div className="w-full bg-slate-800/50 p-3 rounded-lg border border-slate-700 text-sm">
-                            <h3 className="text-md font-semibold text-slate-200 mb-2 flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                         <div className="w-full bg-white/40 backdrop-blur-sm p-3 rounded-lg border border-white/50 text-sm">
+                            <h3 className="text-md font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                 <span>解码信息</span>
                             </h3>
                             <div className="flex justify-around gap-3">
-                                <div className="bg-slate-900/50 p-2 rounded-md flex-1 text-center"><strong className="font-medium text-slate-400 block">尺寸</strong> <span className="text-slate-200">{decodedInfo.dimensions}</span></div>
-                                <div className="bg-slate-900/50 p-2 rounded-md flex-1 text-center"><strong className="font-medium text-slate-400 block">文件大小</strong> <span className="text-slate-200">{decodedInfo.size}</span></div>
+                                <div className="bg-white/60 p-2 rounded-md flex-1 text-center"><strong className="font-medium text-slate-500 block">尺寸</strong> <span className="text-slate-800">{decodedInfo.dimensions}</span></div>
+                                <div className="bg-white/60 p-2 rounded-md flex-1 text-center"><strong className="font-medium text-slate-500 block">文件大小</strong> <span className="text-slate-800">{decodedInfo.size}</span></div>
                             </div>
                         </div>
                     )}

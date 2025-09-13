@@ -32,7 +32,7 @@ const Toast: React.FC<ToastProps> = ({ message, onDismiss }) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="flex items-center justify-center px-5 py-2 bg-slate-100 text-slate-900 rounded-full shadow-lg font-semibold"
+            className="flex items-center justify-center px-5 py-2 bg-white/60 backdrop-blur-lg text-slate-800 rounded-full shadow-xl font-semibold"
             >
             {message}
             </motion.div>

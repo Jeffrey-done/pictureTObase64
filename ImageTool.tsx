@@ -23,7 +23,7 @@ const ImageTool: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white flex flex-col items-center p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen text-slate-800 flex flex-col items-center p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-4xl">
         <Header />
         <main className="mt-8">
